@@ -1,0 +1,16 @@
+<%= link_to "🏠 Home", lists_path %>
+<h1><%= @list.name %></h1>
+
+<h2>Movies</h2>
+
+<ul style="list-style: none;">
+  <% @list.bookmarks.each do |bookmark| %>
+    <li><img src="<%= bookmark.movie.poster_url %>" alt="Movie Poster" width="100" height="150"></li>
+    <li><%= bookmark.movie.title %> | <%= bookmark.movie.overview %> | Rating: <%= bookmark.movie.rating %> | Comment: <%= bookmark.comment %></li>
+    <%= link_to "🗑️",
+  bookmark_path(bookmark),
+  data: {turbo_method: :delete, turbo_confirm: "Delete #{bookmark.movie.title}?"} %>
+  <% end %>
+</ul>
+
+<%= link_to "➕ Add a movie", new_list_bookmark_path(@list) %>

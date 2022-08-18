@@ -1,0 +1,4 @@
+<%= link_to "🏠 Home", lists_path %>
+<%= link_to "⬅️ Back", list_path(@list) %>
+<h2>Add a new movie to "<%= @list.name %>" </h2>
+<%= render "form", bookmark: @bookmark %>

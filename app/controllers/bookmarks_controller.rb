@@ -1,10 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :set_list, only: %i[new create]
 
-  def index
-    @bookmarks = Bookmark.where(list_id: @list)
-  end
-
   def new
     @bookmark = Bookmark.new
   end
