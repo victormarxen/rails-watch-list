@@ -26,3 +26,5 @@ Movie.create(title: "Ocean's Eight", overview: "Debbie Ocean, a criminal masterm
   'https://image.tmdb.org/t/p/original/MvYpKlpFukTivnlBhizGbkAe3v.jpg', rating: 7.0)
 
 puts 'Finished!'
+
+

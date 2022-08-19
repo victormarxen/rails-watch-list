@@ -3,7 +3,9 @@
 <ul style="list-style: none;">
 <% @lists.each do |list| %>
   <li><%= link_to list.name, list_path(list) %></li>
-  <li><%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %></li>
+  <% if list.photo.key%>
+    <li><%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %></li>
+  <% end %>
   <%= link_to "🗑️",
   list_path(list),
   data: {turbo_method: :delete, turbo_confirm: "Delete #{list.name}?"}
