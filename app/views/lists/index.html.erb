@@ -4,8 +4,8 @@
 <% @lists.each do |list| %>
   <li><%= link_to list.name, list_path(list) %></li>
   <%= link_to "🗑️",
-  lists_path(list),
-  data: {turbo_method: :delete, turbo_confirm: "Delete #{@list.name}?"}
+  list_path(list),
+  data: {turbo_method: :delete, turbo_confirm: "Delete #{list.name}?"}
 %>
 <% end %>
 </ul>
