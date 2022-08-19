@@ -3,7 +3,12 @@
 <ul style="list-style: none;">
 <% @lists.each do |list| %>
   <li><%= link_to list.name, list_path(list) %></li>
+  <%= link_to "🗑️",
+  list_path(@list),
+  data: {turbo_method: :delete, turbo_confirm: "Delete #{@list.name}?"}
+%>
 <% end %>
 </ul>
+
 
 <%= link_to "📁 Create a new list", new_list_path %></span>
