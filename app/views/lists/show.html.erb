@@ -14,3 +14,14 @@
 </ul>
 
 <%= link_to "➕ Add a movie", new_list_bookmark_path(@list) %>
+
+<h3>Reviews</h3>
+<ul class="list-group">
+  <% @list.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %> (Rating: <%= review.rating %> / 5)</li>
+  <% end %>
+</ul>
+<br>
+
+<h5>Add your review below:</h5>
+<%= render 'reviews/form', list: @list, review: @review %>
