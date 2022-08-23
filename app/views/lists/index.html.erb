@@ -1,17 +1,19 @@
-<h1>Lists</h1>
-
-<ul style="list-style: none;">
-<% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
-  <% if list.photo.key%>
-    <li><%= cl_image_tag list.photo.key, height: 200, width: 500, crop: :fill %></li>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+    <h1>Lists</h1>
+  <ul style="list-style: none;">
+  <% @lists.each do |list| %>
+    <li><%= link_to list.name, list_path(list) %></li>
+    <% if list.photo.key%>
+      <li><%= cl_image_tag list.photo.key, height: 200, width: 500, crop: :fill %></li>
+    <% end %>
+    <%= link_to "🗑️",
+    list_path(list),
+    data: {turbo_method: :delete, turbo_confirm: "Delete #{list.name}?"}
+  %>
   <% end %>
-  <%= link_to "🗑️",
-  list_path(list),
-  data: {turbo_method: :delete, turbo_confirm: "Delete #{list.name}?"}
-%>
-<% end %>
-</ul>
+  </ul>
+</div>
 
-
-<%= link_to "📁 Create a new list", new_list_path %></span>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <%= link_to "📁 Create a new list", new_list_path %></span>
+</div>
